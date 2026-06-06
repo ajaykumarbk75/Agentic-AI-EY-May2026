@@ -35,7 +35,7 @@ A customer asks the app to find food, apply offers, place an order, and track de
 Example user input:
 
 ```text
-Order chicken biryani near Indiranagar under Rs. 400 and deliver it quickly.
+Order Ghee rice near Indiranagar under Rs. 400 and deliver it quickly.
 ```
 
 ### Wiring Diagram
