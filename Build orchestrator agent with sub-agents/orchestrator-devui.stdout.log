@@ -1,0 +1,60 @@
+Starting Orchestrator and Sub-Agents DevUI at http://localhost:8091
+Created DevUI-Orchestrator-Agent with conversation conv_7915f898bdbde08400zqcQq70tbLZur3TebtrJob06SRJ4I4wf
+Created DevUI-Requirements-Agent with conversation conv_2283eb1129685c1500cAMcB0gRrwubAIc8CUgvNlafDdFLTDHc
+Created DevUI-Implementation-Agent with conversation conv_00f21b09a53418c700BETWFajNUXOzyhhooFCcrIbzw5WarpUW
+Semantic coordination graph:
+ flowchart TD
+  OrchestratorIntake["OrchestratorIntake (Start)"];
+  RequirementsSubAgent["RequirementsSubAgent"];
+  ImplementationSubAgent["ImplementationSubAgent"];
+  OrchestratorSynthesis["OrchestratorSynthesis"];
+  fan_in__OrchestratorSynthesis__e8595593((fan-in))
+  ImplementationSubAgent --> fan_in__OrchestratorSynthesis__e8595593;
+  RequirementsSubAgent --> fan_in__OrchestratorSynthesis__e8595593;
+  fan_in__OrchestratorSynthesis__e8595593 --> OrchestratorSynthesis;
+  internal_OrchestratorIntake --> OrchestratorIntake;
+  internal_RequirementsSubAgent --> RequirementsSubAgent;
+  internal_ImplementationSubAgent --> ImplementationSubAgent;
+  OrchestratorIntake --> RequirementsSubAgent;
+  OrchestratorIntake --> ImplementationSubAgent;
+  internal_OrchestratorSynthesis --> OrchestratorSynthesis;
+INFO:     127.0.0.1:62402 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62006 - "GET / HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62006 - "GET /assets/index.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54816 - "GET /assets/index.css HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62006 - "GET /meta HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62006 - "GET /v1/entities HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62006 - "GET /v1/entities/workflow_in_memory_orchestrator-and-sub-agents_36fd49ab5b81408bb147d5a078fdd3d0/info?type=workflow HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62006 - "GET /agentframework.svg HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62006 - "GET /v1/conversations?entity_id=workflow_in_memory_orchestrator-and-sub-agents_36fd49ab5b81408bb147d5a078fdd3d0&type=workflow_session HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62006 - "POST /v1/conversations HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62736 - "GET / HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57302 - "GET /v1/entities HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55789 - "POST /v1/responses HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54594 - "GET /?entity_id=workflow_in_memory_orchestrator-and-sub-agents_36fd49ab5b81408bb147d5a078fdd3d0 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54594 - "GET /assets/index.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:59634 - "GET /assets/index.css HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:59634 - "GET /meta HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59634 - "GET /v1/entities HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54594 - "GET /agentframework.svg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:54594 - "GET /v1/entities/workflow_in_memory_orchestrator-and-sub-agents_36fd49ab5b81408bb147d5a078fdd3d0/info?type=workflow HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54594 - "GET /v1/conversations?entity_id=workflow_in_memory_orchestrator-and-sub-agents_36fd49ab5b81408bb147d5a078fdd3d0&type=workflow_session HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54385 - "POST /v1/responses HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60151 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49227 - "GET / HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:49227 - "GET /assets/index.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:61128 - "GET /assets/index.css HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:61128 - "GET /meta HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61128 - "GET /v1/entities HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61128 - "GET /v1/entities/workflow_in_memory_orchestrator-and-sub-agents_36fd49ab5b81408bb147d5a078fdd3d0/info?type=workflow HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61128 - "GET /v1/conversations?entity_id=workflow_in_memory_orchestrator-and-sub-agents_36fd49ab5b81408bb147d5a078fdd3d0&type=workflow_session HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61491 - "POST /v1/responses HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58837 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58663 - "GET / HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:58663 - "GET /assets/index.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:57783 - "GET /assets/index.css HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:57783 - "GET /meta HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57783 - "GET /v1/entities HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57783 - "GET /v1/entities/workflow_in_memory_orchestrator-and-sub-agents_36fd49ab5b81408bb147d5a078fdd3d0/info?type=workflow HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57783 - "GET /v1/conversations?entity_id=workflow_in_memory_orchestrator-and-sub-agents_36fd49ab5b81408bb147d5a078fdd3d0&type=workflow_session HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50212 - "POST /v1/responses HTTP/1.1" 200 OK

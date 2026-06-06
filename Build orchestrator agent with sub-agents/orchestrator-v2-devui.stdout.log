@@ -1,0 +1,66 @@
+Starting A2A Local/Remote Planner-Executor-Validator DevUI at http://localhost:8092
+Choose an A2A use case in DevUI:
+1. A2A remote Azure implementation - Design a production-ready private Azure Storage Account with lifecycle management.
+2. A2A remote code review - Review and improve a Python A2A agent executor for reliability and observability.
+3. A2A remote incident response - Create an incident response runbook for a failing A2A server hosted on Azure Container Apps.
+4. A2A remote architecture validation - Create and validate an architecture for multi-agent collaboration across local and remote agents.
+Created DevUI-Planner-Agent with conversation conv_b8c34d3b1afa218600gaNkE0byrOv0lxwejnMtH2mf8TXQmT2M
+Created DevUI-Remote-A2A-Executor-Agent with conversation conv_df395323ca46306000nkp12TX1IpEcCgFPxccGms4tcqRjtdM3
+Created DevUI-Remote-A2A-Validator-Agent with conversation conv_80f16ffb97013367009VqTsH7vC0fmw1HQ5H8mQH7I0RpAs5MX
+Semantic coordination graph:
+ flowchart TD
+  LOCAL_UI_UseCaseSelector["LOCAL_UI_UseCaseSelector (Start)"];
+  LOCAL_PlannerAgent["LOCAL_PlannerAgent"];
+  A2A_SendPlanToRemoteExecutor["A2A_SendPlanToRemoteExecutor"];
+  REMOTE_A2A_ExecutorAgent["REMOTE_A2A_ExecutorAgent"];
+  A2A_SendSolutionToRemoteValidator["A2A_SendSolutionToRemoteValidator"];
+  REMOTE_A2A_ValidatorAgent["REMOTE_A2A_ValidatorAgent"];
+  LOCAL_PublishResult["LOCAL_PublishResult"];
+  REMOTE_A2A_ExecutorRevision["REMOTE_A2A_ExecutorRevision"];
+  A2A_SendRevisionToFinalValidator["A2A_SendRevisionToFinalValidator"];
+  REMOTE_A2A_FinalValidator["REMOTE_A2A_FinalValidator"];
+  internal_LOCAL_UI_UseCaseSelector --> LOCAL_UI_UseCaseSelector;
+  internal_LOCAL_PlannerAgent --> LOCAL_PlannerAgent;
+  LOCAL_UI_UseCaseSelector --> LOCAL_PlannerAgent;
+  internal_A2A_SendPlanToRemoteExecutor --> A2A_SendPlanToRemoteExecutor;
+  LOCAL_PlannerAgent --> A2A_SendPlanToRemoteExecutor;
+  internal_REMOTE_A2A_ExecutorAgent --> REMOTE_A2A_ExecutorAgent;
+  A2A_SendPlanToRemoteExecutor --> REMOTE_A2A_ExecutorAgent;
+  internal_A2A_SendSolutionToRemoteValidator --> A2A_SendSolutionToRemoteValidator;
+  REMOTE_A2A_ExecutorAgent --> A2A_SendSolutionToRemoteValidator;
+  internal_REMOTE_A2A_ValidatorAgent --> REMOTE_A2A_ValidatorAgent;
+  A2A_SendSolutionToRemoteValidator --> REMOTE_A2A_ValidatorAgent;
+  internal_LOCAL_PublishResult --> LOCAL_PublishResult;
+  REMOTE_A2A_ValidatorAgent -. conditional .-> LOCAL_PublishResult;
+  internal_REMOTE_A2A_ExecutorRevision --> REMOTE_A2A_ExecutorRevision;
+  REMOTE_A2A_ValidatorAgent -. conditional .-> REMOTE_A2A_ExecutorRevision;
+  internal_A2A_SendRevisionToFinalValidator --> A2A_SendRevisionToFinalValidator;
+  REMOTE_A2A_ExecutorRevision --> A2A_SendRevisionToFinalValidator;
+  internal_REMOTE_A2A_FinalValidator --> REMOTE_A2A_FinalValidator;
+  A2A_SendRevisionToFinalValidator --> REMOTE_A2A_FinalValidator;
+  REMOTE_A2A_FinalValidator --> LOCAL_PublishResult;
+INFO:     127.0.0.1:57773 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50820 - "GET / HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:50820 - "GET /assets/index.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:62638 - "GET /assets/index.css HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:62638 - "GET /meta HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62638 - "GET /v1/entities HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62638 - "GET /v1/entities/workflow_in_memory_a2a-local-remote-planner-executor-validator_d8908c1274e5455a846af0f5f1c2fe97/info?type=workflow HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62638 - "GET /v1/conversations?entity_id=workflow_in_memory_a2a-local-remote-planner-executor-validator_d8908c1274e5455a846af0f5f1c2fe97&type=workflow_session HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62638 - "POST /v1/conversations HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49682 - "GET / HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59396 - "GET /v1/entities HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60965 - "GET / HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59768 - "POST /v1/responses HTTP/1.1" 200 OK
+A2A handoff: local planner sends the plan to the remote executor agent.
+A2A handoff: remote executor sends the solution to the remote validator agent.
+INFO:     127.0.0.1:60544 - "GET /?entity_id=workflow_in_memory_a2a-local-remote-planner-executor-validator_d8908c1274e5455a846af0f5f1c2fe97 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60544 - "GET /meta HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60544 - "GET /v1/entities HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60401 - "GET /agentframework.svg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:60401 - "GET /v1/entities/workflow_in_memory_a2a-local-remote-planner-executor-validator_d8908c1274e5455a846af0f5f1c2fe97/info?type=workflow HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60401 - "GET /v1/conversations?entity_id=workflow_in_memory_a2a-local-remote-planner-executor-validator_d8908c1274e5455a846af0f5f1c2fe97&type=workflow_session HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62972 - "POST /v1/responses HTTP/1.1" 200 OK
+A2A handoff: local planner sends the plan to the remote executor agent.
+A2A handoff: remote executor sends the solution to the remote validator agent.
+INFO:     127.0.0.1:57307 - "POST /v1/responses HTTP/1.1" 200 OK
